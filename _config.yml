@@ -1,6 +1,6 @@
 # Site
-name: 'Antoine MAZE'
-description: 'Personal Blog '
+name: 'antinmaze'
+description: 'Personal Blog : IT, Apis, Cloud & Security and more'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: '/'
