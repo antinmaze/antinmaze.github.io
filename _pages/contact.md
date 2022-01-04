@@ -3,7 +3,7 @@ title: "Contact"
 permalink: "/contact.html"
 ---
 
-<form action="https://formspree.io/f/{{site.email}}" method="POST">    
+<form action="https://formspree.io/f/{{site.email}}" method="POST" enctype="multipart/form-data">    
 <p class="mb-4">Please send your message to {{site.name}}. We will reply as soon as possible!</p>
 <div class="form-group row">
 <div class="col-md-6">
