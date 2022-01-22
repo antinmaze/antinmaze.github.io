@@ -35,6 +35,14 @@ authors:
       email:          fakemail@gmail.com
       twitter:        https://twitter.com/wowthemesnet
 
+    antoine:
+      name:           Antoine
+      site:           https://github.com/antinmaze/
+      avatar:         /assets/images/avatar3.jpg
+      bio:            "Architecte Solutions, Nantes, blog sur l'IT, le Cloud et la Sécurité et plus"
+      email:          antinmaze@gmail.com
+      twitter:        https://twitter.com/antoinemaze
+
 # Defaults
 defaults:
 
