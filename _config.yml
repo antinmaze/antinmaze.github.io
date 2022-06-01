@@ -22,6 +22,7 @@ url: "https://antinmaze.github.io/" # the base hostname & protocol for your site
 twitter_username: 'antoinemaze'
 github_username: 'antinmaze'
 medium_username: 'antoinemaze.hashnode.dev'
+soundcloud_username: 'oldkdz'
 
 # Build settings
 markdown: kramdown
