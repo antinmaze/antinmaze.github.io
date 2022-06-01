@@ -1,51 +1,98 @@
-# Jekyll Theme - Mundana by WowThemes.net
+## Phantom for Jekyll
 
-[Live Demo](https://wowthemesnet.github.io/mundana-theme-jekyll/) &nbsp; | &nbsp; 
-[Download](https://github.com/wowthemesnet/mundana-theme-jekyll/archive/master.zip) &nbsp; | &nbsp; 
-[Buy me a coffe](https://www.wowthemes.net/donate/) &nbsp; | &nbsp; [Documentation](https://bootstrapstarter.com/mundana-theme-jekyll/) &nbsp; | &nbsp; 
-[WordPress version](https://www.wowthemes.net/themes/mundana-wordpress/) 
+A minimalist, responsive portfolio theme for [Jekyll](http://jekyllrb.com/) with Bootstrap.
 
-![mundana jekyll theme screenshot](assets/images/screenshot.jpg)
+![preview](preview.jpg)
 
-### Documentation
+[See it in action](http://jamigibbs.github.io/phantom/).
 
-[How to install & use](https://bootstrapstarter.com/bootstrap-templates/mundana-theme-jekyll/)
+## Fancy using it for your own site?
 
-### Contribute to Mundana repository
+Here are some steps to get you started:
 
-1. In the top-right corner of this page, click **Fork**.
+1. Clone this repo and cd into the directory:
 
-2. Clone a copy of your fork on your local, replacing *YOUR-USERNAME* with your Github username.
+  ```bash
+  git clone https://github.com/jamigibbs/phantom.git your-dir-name && cd your-dir-name
+  ```
 
-   `git clone https://github.com/YOUR-USERNAME/mundana-theme-jekyll.git`
+2. Run:
 
-3. **Create a branch**: 
+  ```bash
+  gem install bundler
+  bundle install
+  bundle exec jekyll serve
+  ```
 
-   `git checkout -b <my-new-feature-or-fix>`
+  You may need to append your commands with `sudo` if you're getting a permissions error.
 
-4. **Make necessary changes and commit those changes**:
+  _Don't have Jekyll yet? [Get `er installed then!](http://jekyllrb.com/docs/installation/)_
 
-   `git add .`
+3. Visit in your browser at:
 
-   `git commit -m "new feature or fix"`
+  `http://127.0.0.1:4000`
 
-5. **Push changes**, replacing `<add-your-branch-name>` with the name of the branch you created earlier at step #3. :
+## Launching with Github Pages :rocket:
 
-   `git push origin <add-your-branch-name>`
+Jekyll + Github pages is a marriage made in heaven. You can [use your own custom domain name](https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/) or use the default Github url (ie. http://username.github.io/repository) and not bother messing around with DNS settings.
 
-6. Submit your changes for review. Go to your repository on GitHub, you'll see a **Compare & pull request** button. Click on that button. Now submit the pull request.
+## Theme Features
 
-That's it! Soon I'll be merging your changes into the master branch of this project. You will get a notification email once the changes have been merged. Thank you for your contribution.
+### Navigation
 
+Navigation can be customized in `_config.yml` under the `nav_item` key. Default settings:
 
-### Copyright
+```yaml
+nav_item:
+    - { url: '/', text: 'Home' }
+    - { url: '/about', text: 'About' }
+```
 
-Copyright (C) 2019 WowThemes.net.
+Set the `nav_enable` variable to false in `_config.yml` to disable navigation.
 
-Theme designed and developed by [Sal](https://www.wowthemes.net), *free* under MIT license. 
+### Contact Form
 
-<a href="https://www.wowthemes.net/donate/" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+You can display a contact form within the modal window template. This template is already setup to use the [Formspree](https://formspree.io) email system. You'll just want to add your email address to the form in `/_includes/contact-modal.html`.
 
-### Live Demo
+Place the modal window template in any place you'd like the user to click for the contact form.
+The template will display a link to click for the contact form modal window:
 
-[Live Demo](https://wowthemesnet.github.io/mundana-theme-jekyll/)
+```liquid
+{% include contact.html %}
+{% include contact-modal.html %}
+```
+
+### Animation Effects
+
+Animations with CSS classes are baked into the theme. To animate a section or element, simply add the animation classes:
+
+```html
+<div id="about-me" class="wow fadeIn">
+  I'm the coolest!
+</div>
+```
+
+For a complete list of animations, see the [animation list](http://daneden.github.io/animate.css/).
+
+### Pagination
+
+By default, pagination on the home page will activate after 10 posts. You can change this within `_config.yml`. You can add the pagination to other layouts with:
+
+```liquid
+  {% for post in paginator.posts %}
+    {% include post-content.html %}
+  {% endfor %}
+
+  {% include pagination.html %}
+```
+
+Read more about the [pagination plugin](http://jekyllrb.com/docs/pagination/).
+
+## Credit
+
+* Bootstrap, http://getbootstrap.com/, (C) 2011 - 2016 Twitter, Inc., [MIT](https://github.com/twbs/bootstrap/blob/master/LICENSE)
+
+* Wow, https://github.com/matthieua/WOW, (C) 2014 - 2016 Matthieu Aussaguel
+, [GPL](https://github.com/matthieua/WOW#open-source-license)
+
+* Animate.css, https://github.com/daneden/animate.css, (C) 2016 Daniel Eden, [MIT](https://github.com/daneden/animate.css/blob/master/LICENSE)
