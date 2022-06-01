@@ -22,7 +22,6 @@ url: "https://antinmaze.github.io/" # the base hostname & protocol for your site
 twitter_username: 'antoinemaze'
 github_username: 'antinmaze'
 linkedin_username: 'antoinemaze'
-medium_username: 'antoinemaze.hashnode.dev'
 hashnode_username: 'antoinemaze.hashnode.dev'
 soundcloud_username: 'oldkdz'
 spotify_username: 'etanova'
@@ -96,10 +95,10 @@ pagination:
 footer_text: '© 2022 Antoine MAZ&Eacute;'
 admin_name: 'Antoine MAZ&Eacute;'
 google_analytics: "317526507" # Update with your own tracking ID
-enable_contact: false
+enable_contact: true
 
 #### Phantom Navigation menu
 enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
-  - { url: '/about', text: 'About' }
+  - { url: 'https://www.linkedin.com/in/antoinemaze/', text: 'About' }
