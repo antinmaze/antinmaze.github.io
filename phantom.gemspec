@@ -3,10 +3,10 @@
 Gem::Specification.new do |spec|
   spec.name          = "phantom"
   spec.version       = "0.1.1"
-  spec.authors       = ["Antoine Mazé"]
-  spec.email         = ["jami0821@gmail.com"]
+  spec.authors       = ["Antoine MAZ&Eacute;"]
+  spec.email         = ["contact@antoinemaze.fr"]
 
-  spec.summary       = "Antoine Mazé - Lead Solutions Architect - IT / Cloud / Security"
+  spec.summary       = "Antoine MAZ&Eacute; - Lead Solutions Architect - IT / Cloud / Security"
   spec.homepage      = "https://github.com/antinmaze/antinmaze.github.io"
   spec.license       = "MIT"
 
