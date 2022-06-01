@@ -17,6 +17,9 @@
             {% if site.description != '' %}
             {{site.description}}
             {% endif %}
+            {% if site.role != '' %}
+            {{site.role}}
+            {% endif %}
 
             {% if site.enable_contact == true %}
             {% include contact.html %}
