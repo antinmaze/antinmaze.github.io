@@ -14,12 +14,13 @@
 
           {% if site.description != '' or site.enable_contact == true %}
           <p class="text-center">
-            {% if site.description != '' %}
-            {{site.description}}
-            {% endif %}
-            </br>
             {% if site.role != '' %}
             {{site.role}}
+            {% endif %}
+            </br></br>
+
+            {% if site.description != '' %}
+            {{site.description}}
             {% endif %}
 
             {% if site.enable_contact == true %}
