@@ -20,11 +20,14 @@
   <!-- Fonts -->
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,400italic,700|Merriweather:400,300,300italic,400italic,700' rel='stylesheet' type='text/css'>
 
-  <!-- Styles -->
   <link rel="stylesheet" href="{{ "/css/all.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/v4-shims.min.css" | prepend: site.baseurl }}">
+  <!-- Styles 
+  <link rel="stylesheet" href="{{ "/css/fontawesome.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/brands.min.css" | prepend: site.baseurl }}">
+  -->
   <link rel="stylesheet" href="{{ "/css/animate.min.css" | prepend: site.baseurl }}">
   <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
-  
 
 </head>
 <body class="{{ post.title | downcase | replace:' ','-' | replace:',','' | strip_html }}{% if page.category %} category-{{ page.category }}{% endif %}{% if page.layout-class %} layout-{{ page.layout-class }}{% endif %}">
