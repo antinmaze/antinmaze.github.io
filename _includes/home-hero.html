@@ -33,17 +33,17 @@
           <div class="hero-buttons">
 
             <div class="list-group">
-              {% if site.twitter_username != '' %}
-                <button type="button" href="https://twitter.com/{{ site.twitter_username }}" class="list-group-item"><i class="fa fa-twitter fa-lg"></i>Twitter</button>
+              {% if site.linkedin_username != '' %}
+                <button type="button" href="https://www.linkedin.com/in/{{ site.linkedin_username }}" class="list-group-item"><i class="fa-brands fa-linkedin"></i>Linkedin</button>
               {% endif %}
               {% if site.github_username != '' %}
                 <button type="button" href="https://github.com/{{ site.github_username }}" class="list-group-item"><i class="fa fa-github fa-lg"></i>Github</button>
               {% endif %}
-              {% if site.linkedin_username != '' %}
-                <button type="button" href="https://www.linkedin.com/in/{{ site.linkedin_username }}" class="list-group-item"><i class="fa-brands fa-linkedin"></i>Linkedin</button>
-              {% endif %}
               {% if site.hashnode_username != '' %}
                 <button type="button" href="https://{{ site.hashnode_username }}" class="list-group-item"><i class="fa-brands fa-hashnode"></i>Hashnode</button>
+              {% endif %}
+              {% if site.twitter_username != '' %}
+                <button type="button" href="https://twitter.com/{{ site.twitter_username }}" class="list-group-item"><i class="fa fa-twitter fa-lg"></i>Twitter</button>
               {% endif %}
               {% if site.soundcloud_username != '' %}
                 <button type="button" href="https://soundcloud.com/{{ site.soundcloud_username }}" class="list-group-item"><i class="fa-brands fa-soundcloud"></i>Soundcloud</button>
