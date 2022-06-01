@@ -21,9 +21,10 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://antinmaze.github.io/" # the base hostname & protocol for your site, e.g. https://example.com
 twitter_username: 'antoinemaze'
 github_username: 'antinmaze'
+linkedin_username: 'antoinemaze'
 medium_username: 'antoinemaze.hashnode.dev'
+hashnode_username: 'antoinemaze.hashnode.dev'
 soundcloud_username: 'oldkdz'
-
 # Build settings
 markdown: kramdown
 # theme: phantom # Uncomment once published to RubyGems
