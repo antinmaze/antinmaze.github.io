@@ -160,28 +160,26 @@ li a {
   .hero-buttons {
     margin: 0 auto;
   }
+  .list-group {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    padding-left: 0em;
+    padding-right: 0em;
+  }
+  .list-group-item {
+    margin: auto;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 1.5em;
+    min-width: 13em;
+    max-width: 13em;
+  }
+  .fa, .fa-brands{
+    padding-right: 0em;
+    margin-right: 0em;
+  }
 }
-
-.list-group {
-  width: 50%;
-  margin: 0 auto;
-  text-align: left;
-  padding-left: 0em;
-  padding-right: 0em;
-}
-.list-group-item {
-  margin: auto;
-  padding-left: 2em;
-  padding-right: 2em;
-  font-size: 1.5em;
-  min-width: 13em;
-  max-width: 13em;
-}
-.fa, .fa-brands{
-  padding-right: 0em;
-  margin-right: 0em;
-}
-
 
 /*--------------------------------------------------------------
 	2.1 Contact
