@@ -18,7 +18,7 @@ email: 'contact@antoinemmaze.fr'
 role: "Lead Solutions Architect - IT / Cloud / Security"
 description:  "Maker, I am passionate about building scaling products, tackling complex issues and creating a consensus on a vision and the solutions I’ve developed skills in API, Cloud and Security of critical systems."
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://antinmaze.github.io/" # the base hostname & protocol for your site, e.g. https://example.com
+url: "https://www.antoinemaze.fr/" # the base hostname & protocol for your site, e.g. https://example.com
 twitter_username: 'antoinemaze'
 github_username: 'antinmaze'
 linkedin_username: 'antoinemaze'
