@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://antoinemaze.fr/sitemap.xml
