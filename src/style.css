@@ -118,7 +118,7 @@ body {
 	.language-switch { background: #1b2337; border-color: #36415b; }
 	.language-switch a { color: #bdcaff; }
 	.language-switch a:hover { background: #2a3554; }
-	.muted { color: #a4afc4; }
+	h2 .muted { color: #506fee; }
 	.hero-intro, .hero-footnote, .about-copy p, .expertise-card p, .project-body p,
 	.contact-section > p:not(.eyebrow), .contact-links, .footer p, .back-top { color: #aab5cb; }
 	.hero-intro strong, .about-copy p.lead { color: #d3dcee; }
@@ -242,14 +242,14 @@ body {
   color: #b8c7ff;
 }
 
-:root:is([data-theme="dark"], :not([data-theme])) nav .nav-contact {
-	background: var(--green);
-	border-color: var(--green);
+:root:is([data-theme="dark"], [data-theme="light"], :not([data-theme])) nav .nav-contact {
+	background: #1d7a4d;
+	border-color: #1d7a4d;
 	color: #fff;
 	box-shadow: 0 8px 18px rgba(29, 122, 77, 0.2);
 }
 
-:root:is([data-theme="dark"], :not([data-theme])) nav .nav-contact:hover {
+:root:is([data-theme="dark"], [data-theme="light"], :not([data-theme])) nav .nav-contact:hover {
 	background: #196942;
 	border-color: #196942;
 	color: #fff;
@@ -415,11 +415,8 @@ body {
   color: #214a9e;
 }
 
-:root[data-theme="light"] nav .nav-contact {
-  background: linear-gradient(135deg, #edf4ff, #dfeaff);
-  border-color: rgba(134, 161, 232, 0.4);
-  box-shadow: 0 10px 20px rgba(60, 96, 214, 0.12);
-  color: #1e448d;
+:root[data-theme="light"] h1 .accent {
+	color: #1d7a4d;
 }
 
 :root[data-theme="light"] .language-switch {
@@ -446,7 +443,6 @@ body {
 }
 
 :root[data-theme="light"] .hero .eyebrow,
-:root[data-theme="light"] .section-label,
 :root[data-theme="light"] .accent,
 :root[data-theme="light"] .muted,
 :root[data-theme="light"] .hero-intro strong,
@@ -510,9 +506,8 @@ body {
 	box-shadow: 0 14px 35px rgba(31, 45, 72, 0.07);
 }
 
-:root[data-theme="light"] .music-copy > .eyebrow,
-:root[data-theme="light"] .music-copy h2 > span,
 :root[data-theme="light"] .music-copy strong { color: #365bad; }
+:root[data-theme="light"] .section-label { color: #1d7a4d; }
 :root[data-theme="light"] .music-copy > p:not(.eyebrow),
 :root[data-theme="light"] .music-caption,
 :root[data-theme="light"] .record-note { color: #4b6282; }
@@ -528,12 +523,15 @@ body {
 }
 
 /* Comfortable reading scale, shared by both themes and languages. */
+:root[data-theme] nav .nav-contact:is(:hover, :focus, :active, [aria-current]) {
+	color: #fff;
+}
 .contact-links a { justify-content: center; min-width: 44px; min-height: 44px; }
 .contact-links svg { width: 26px; height: 26px; }
 .contact-links [data-lucide="github"] {
 	display: inline-block;
-	width: 28px;
-	height: 28px;
+	width: 40px;
+	height: 40px;
 	background: currentColor;
 	mask: url('/github.svg') center / contain no-repeat;
 }
