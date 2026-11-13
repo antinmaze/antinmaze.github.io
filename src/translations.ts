@@ -13,6 +13,11 @@ export const english: Record<string, string> = {
   'Projets': 'Projects',
   'Côté musique': 'Music',
   'Échangeons': 'Let’s talk',
+  'About': 'About',
+  'Expertise': 'Expertise',
+  'Projects': 'Projects',
+  'Music': 'Music',
+  'Let’s talk': 'Let’s talk',
   'ARCHITECTE DE SOLUTIONS · CRÉATEUR DANS L’ÂME': 'SOLUTIONS ARCHITECT · CREATOR AT HEART',
   'IA, cloud & business transformation': 'AI, cloud & business transformation',
   'IA · CLOUD · BUSINESS TRANSFORMATION': 'AI, cloud & business transformation',
@@ -106,6 +111,34 @@ export const english: Record<string, string> = {
 };
 
 export const messages = {
-  fr: { openMenu: 'Ouvrir le menu', closeMenu: 'Fermer le menu', projects: (count: number) => `${count} projets affichés` },
-  en: { openMenu: 'Open menu', closeMenu: 'Close menu', projects: (count: number) => `${count} projects shown` },
+  fr: {
+    openMenu: 'Ouvrir le menu',
+    closeMenu: 'Fermer le menu',
+    skipLink: 'Aller au contenu',
+    projects: (count: number) => `${count} projets affichés`,
+    nav: {
+      home: 'Antoine Mazé, accueil',
+      about: 'À propos',
+      expertise: 'Expertises',
+      projects: 'Projets',
+      music: 'Côté musique',
+      contact: 'Échangeons',
+      chooseLanguage: 'Choisir la langue',
+    },
+  },
+  en: {
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    skipLink: 'Skip to content',
+    projects: (count: number) => `${count} projects shown`,
+    nav: {
+      home: 'Antoine Mazé, home',
+      about: 'About',
+      expertise: 'Expertise',
+      projects: 'Projects',
+      music: 'Music',
+      contact: 'Let’s talk',
+      chooseLanguage: 'Choose language',
+    },
+  },
 };

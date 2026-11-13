@@ -5,6 +5,41 @@ import { messages } from './translations';
 const language = document.documentElement.lang === 'en' ? 'en' : 'fr';
 const text = messages[language];
 
+const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
+const navigation = document.querySelector<HTMLElement>('#navigation');
+
+function setNavigationLabels() {
+  const items = new Map<string, string>([
+    ['#apropos', text.nav.about],
+    ['#expertises', text.nav.expertise],
+    ['#projets', text.nav.projects],
+    ['#musique', text.nav.music],
+    ['#contact', text.nav.contact],
+  ]);
+
+  navigation?.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+    const label = items.get(link.getAttribute('href') ?? '');
+    if (!label) return;
+
+    const textNode = Array.from(link.childNodes).find((node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim());
+    if (textNode) {
+      textNode.textContent = label;
+      return;
+    }
+
+    link.textContent = label;
+  });
+
+  const skipLink = document.querySelector('.skip-link');
+  if (skipLink) skipLink.textContent = text.skipLink;
+
+  const languageToggle = document.querySelector('.language-switch');
+  if (languageToggle) languageToggle.setAttribute('aria-label', text.nav.chooseLanguage);
+
+  const homeLink = document.querySelector<HTMLAnchorElement>('.brand');
+  if (homeLink) homeLink.setAttribute('aria-label', text.nav.home);
+}
+
 // Keep the section when following the language link; normal links also work without JS.
 function updateLanguageLinks() {
   document.querySelectorAll<HTMLAnchorElement>('[data-language]').forEach((link) => {
@@ -13,12 +48,10 @@ function updateLanguageLinks() {
   });
 }
 updateLanguageLinks();
+setNavigationLabels();
 window.addEventListener('hashchange', updateLanguageLinks);
 
 createIcons({ icons: { ArrowUpRight, ArrowDownRight, ArrowRight, ArrowUp, Linkedin, Github, MapPin, Layers3, Cloud, ShieldCheck, Code2, Blocks, Film, Video, Sparkles, MessageSquareText, Database, ScanText, AudioLines, Menu } });
-
-const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
-const navigation = document.querySelector<HTMLElement>('#navigation');
 
 function closeMenu() {
   menuButton?.setAttribute('aria-expanded', 'false');

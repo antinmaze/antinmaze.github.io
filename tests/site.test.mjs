@@ -2,6 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { parse } from 'parse5';
+import { messages } from '../src/translations.ts';
 
 const html = readFileSync(new URL('../dist/index.html', import.meta.url), 'utf8');
 const englishHtml = readFileSync(new URL('../dist/en/index.html', import.meta.url), 'utf8');
@@ -71,7 +72,13 @@ test('all substantial French copy is translated in the static English page', () 
   }
   assert.doesNotMatch(englishHtml, /je m’exprime|projets affichés|Ouvrir le menu|Filtrer les projets/);
 });
-
+test('English menu labels are available in the client-side translation table', () => {
+  assert.equal(messages.en.nav.about, 'About');
+  assert.equal(messages.en.nav.expertise, 'Expertise');
+  assert.equal(messages.en.nav.projects, 'Projects');
+  assert.equal(messages.en.nav.music, 'Music');
+  assert.equal(messages.en.nav.contact, 'Let’s talk');
+});
 test('both pages expose reciprocal language links and language selection', () => {
   for (const page of [html, englishHtml]) {
     assert.match(page, /hreflang="fr" href="https:\/\/antoinemaze.fr\/"/);
