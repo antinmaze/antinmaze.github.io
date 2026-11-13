@@ -58,8 +58,8 @@ test('English is generated as a standalone static page with translated metadata'
   assert.match(englishHtml, /rel="canonical" href="https:\/\/antoinemaze.fr\/en\/"/);
   assert.match(englishHtml, /property="og:locale" content="en_GB"/);
   assert.ok(textContent(englishHtml).includes('From vision'));
-  assert.ok(textContent(englishHtml).includes('AI, Cloud & innovation'));
-  assert.ok(textContent(html).includes('AI, Cloud & innovation'));
+  assert.ok(textContent(englishHtml).includes('AI, cloud & business transformation'));
+  assert.ok(textContent(html).includes('IA, cloud & business transformation'));
 });
 
 test('all substantial French copy is translated in the static English page', () => {
