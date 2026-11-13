@@ -7,6 +7,30 @@ const text = messages[language];
 
 const menuButton = document.querySelector<HTMLButtonElement>('.menu-toggle');
 const navigation = document.querySelector<HTMLElement>('#navigation');
+const themeButton = document.querySelector<HTMLButtonElement>('.theme-toggle');
+const themeIcon = themeButton?.querySelector<HTMLSpanElement>('.theme-toggle__icon');
+
+function applyTheme(theme: 'light' | 'dark') {
+  document.documentElement.dataset.theme = theme;
+  const nextThemeLabel = theme === 'dark' ? text.theme.switchToLight : text.theme.switchToDark;
+  themeButton?.setAttribute('aria-label', nextThemeLabel);
+  themeButton?.setAttribute('title', nextThemeLabel);
+  themeButton?.setAttribute('aria-pressed', String(theme === 'light'));
+  if (themeIcon) {
+    themeIcon.textContent = theme === 'dark' ? '☀' : '☾';
+  }
+}
+
+function getPreferredTheme(): 'light' | 'dark' {
+  try {
+    const storedTheme = localStorage.getItem('portfolio-theme');
+    if (storedTheme === 'light' || storedTheme === 'dark') return storedTheme;
+  } catch {
+    // Ignore storage access issues in private browsing or restricted contexts.
+  }
+
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
 
 function setNavigationLabels() {
   const items = new Map<string, string>([
@@ -49,7 +73,21 @@ function updateLanguageLinks() {
 }
 updateLanguageLinks();
 setNavigationLabels();
+applyTheme(getPreferredTheme());
 window.addEventListener('hashchange', updateLanguageLinks);
+
+if (themeButton) {
+  themeButton.addEventListener('click', () => {
+    const currentTheme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    applyTheme(nextTheme);
+    try {
+      localStorage.setItem('portfolio-theme', nextTheme);
+    } catch {
+      // Ignore storage access issues in private browsing or restricted contexts.
+    }
+  });
+}
 
 createIcons({ icons: { ArrowUpRight, ArrowDownRight, ArrowRight, ArrowUp, Linkedin, Github, MapPin, Layers3, Cloud, ShieldCheck, Code2, Blocks, Film, Video, Sparkles, MessageSquareText, Database, ScanText, AudioLines, Menu } });
 
