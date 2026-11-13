@@ -18,7 +18,7 @@ function textContent(source) {
 }
 
 test('production HTML contains the profile and portfolio sections', () => {
-  assert.match(html, /<html lang="fr">/);
+  assert.match(html, /<html lang="fr"[^>]*>/);
   assert.match(html, /Antoine Mazé/);
   for (const id of ['contenu', 'accueil', 'apropos', 'expertises', 'projets', 'musique', 'contact']) {
     assert.ok(html.includes(`id="${id}"`), `Missing section: ${id}`);
@@ -54,7 +54,7 @@ test('deployment includes custom domain and disables Jekyll', () => {
 });
 
 test('English is generated as a standalone static page with translated metadata', () => {
-  assert.match(englishHtml, /<html lang="en">/);
+  assert.match(englishHtml, /<html lang="en"[^>]*>/);
   assert.match(englishHtml, /<title>Antoine Mazé — Architecture, Cloud &amp; Creativity<\/title>/);
   assert.match(englishHtml, /rel="canonical" href="https:\/\/antoinemaze.fr\/en\/"/);
   assert.match(englishHtml, /property="og:locale" content="en_GB"/);
@@ -79,6 +79,16 @@ test('English menu labels are available in the client-side translation table', (
   assert.equal(messages.en.nav.music, 'Music');
   assert.equal(messages.en.nav.contact, 'Let’s talk');
 });
+
+test('both pages expose an explicit light/dark theme toggle and default to dark', () => {
+  for (const page of [html, englishHtml]) {
+    assert.match(page, /class="theme-toggle"/);
+    assert.match(page, /aria-label=".*(theme|thème).*"/i);
+  }
+  assert.match(html, /data-theme="dark"/);
+  assert.match(englishHtml, /data-theme="dark"/);
+});
+
 test('both pages expose reciprocal language links and language selection', () => {
   for (const page of [html, englishHtml]) {
     assert.match(page, /hreflang="fr" href="https:\/\/antoinemaze.fr\/"/);
@@ -90,14 +100,17 @@ test('both pages expose reciprocal language links and language selection', () =>
   assert.match(englishHtml, /data-language="en"[^>]*aria-current="page"/);
 });
 
-test('both languages declare native system color-scheme support', () => {
+test('both languages declare color schemes and CSS isolates explicit themes', () => {
   for (const page of [html, englishHtml]) {
     assert.match(page, /name="color-scheme" content="light dark"/);
     assert.match(page, /name="theme-color" content="#111522" media="\(prefers-color-scheme: dark\)"/);
     assert.match(page, /name="theme-color" content="#fafbfc" media="\(prefers-color-scheme: light\)"/);
   }
   const styles = readdirSync(new URL('../dist/assets/', import.meta.url)).filter((file) => file.endsWith('.css'));
-  assert.ok(styles.some((file) => readFileSync(new URL(`../dist/assets/${file}`, import.meta.url), 'utf8').includes('prefers-color-scheme:dark')));
+  const css = styles.map((file) => readFileSync(new URL(`../dist/assets/${file}`, import.meta.url), 'utf8')).join('\n');
+  assert.match(css, /:root:is\(\[data-theme=dark\],:not\(\[data-theme\]\)\)/);
+  assert.match(css, /:root\[data-theme=light\] \.expertise-card\{/);
+  assert.doesNotMatch(css, /@media\s*\(prefers-color-scheme:dark\)/);
 });
 
 test('legacy theme files are removed from the source tree', () => {

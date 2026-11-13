@@ -116,6 +116,10 @@ export const messages = {
     closeMenu: 'Fermer le menu',
     skipLink: 'Aller au contenu',
     projects: (count: number) => `${count} projets affichés`,
+    theme: {
+      switchToLight: 'Passer en mode clair',
+      switchToDark: 'Passer en mode sombre',
+    },
     nav: {
       home: 'Antoine Mazé, accueil',
       about: 'À propos',
@@ -131,6 +135,10 @@ export const messages = {
     closeMenu: 'Close menu',
     skipLink: 'Skip to content',
     projects: (count: number) => `${count} projects shown`,
+    theme: {
+      switchToLight: 'Switch to light mode',
+      switchToDark: 'Switch to dark mode',
+    },
     nav: {
       home: 'Antoine Mazé, home',
       about: 'About',
